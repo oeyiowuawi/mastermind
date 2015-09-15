@@ -1,0 +1,2 @@
+Welcome to Mastermind. the game is palyed as follows:
+ enter the first letters of the  4 colours that will be shown to you. e.g R for Red,O for Orange, B for Blue and so on.

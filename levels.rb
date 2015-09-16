@@ -4,6 +4,7 @@ require_relative "computer_guess"
 require_relative "game"
 require 'colorize'
 require_relative 'FileHandler'
+require_relative 'gametime'
 class Level
 def initialize(level)
 case level
@@ -20,9 +21,8 @@ private
 def select_level(l_num,num)
 
         Messages.level_start_messages(l_num)
-        t = Time.now
-        t_sec = t.sec
-        start_time = (t.min*60) + t_sec
+
+        start_time = Game_time.time
         trials = 0
         comp = Computer.new(l_num).level_comp_guess
         puts comp
@@ -41,12 +41,11 @@ def select_level(l_num,num)
             elsif input_guess == comp
                 trials += 1
                 puts Messages.congratulatory_message.green
-                e_t = Time.now
-                e_t_s = e_t.sec
-                end_time = (e_t.min *60) + e_t_s
-                game_time = end_time - start_time
+                end_time = Game_time.time
+                game_time_mins = (end_time - start_time) / 60
+                game_time_secs = (end_time - start_time) % 60
                 player_name = gets.chop
-                puts "#{player_name}, You guessed the sequence '#{comp}' in #{game_time/60.0}"
+                puts "#{player_name}, You guessed the sequence '#{comp}' in #{game_time_mins }mins,#{game_time_secs}secs"
                 #Filewriter.writer(player_name,game_time,comp)
                 Messages.end_message
                 system(exit)

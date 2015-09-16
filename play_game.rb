@@ -10,11 +10,12 @@ loop do
     input1 = gets.chomp
     case input1
     when "1"
-      Level.level_one
+
+     Level.new(1)
     when "2"
-      Level.level_two
+      Level.new(2)
     when "3"
-      Level.level_three
+      Level.new(3)
     when "q","quit"
       system(exit)
     else

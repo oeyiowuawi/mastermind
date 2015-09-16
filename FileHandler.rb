@@ -7,8 +7,8 @@ class Filewriter
     file.close
     Messages.start_up_message
   end
-def self.writer_level_one(name,sequnce)
-    player = name
+def self.writer(player_name,game_time,comp)
+    
 
 
 

@@ -4,13 +4,10 @@ class Game
 @comp =comp.split("")
 @zipped_array = @comp.zip(@input_guess)
 end
-
-
   def exacts
    b =  @zipped_array.select{|x| x[0] == x[1]}.count
   return b
   end
-
   def partials
     @zipped_array.select!{|x| x[0] != x[1]}
     c_guess, player_guess = @zipped_array.transpose

@@ -6,6 +6,7 @@ class MASTERMIND
   Messages.start_up_message
 
 
+
   loop do
     input = gets.chomp
   case input.downcase

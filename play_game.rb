@@ -12,10 +12,10 @@ loop do
     when "1"
       Level.level_one
     when "2"
-      level_two
+      Level.level_two
     when "3"
-      level_three
-    when "q"
+      Level.level_three
+    when "q","quit"
       system(exit)
     else
       puts "follow the command and input the correct number."

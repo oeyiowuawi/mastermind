@@ -1,5 +1,5 @@
 require_relative "master_messages"
-require_relative "readInstruction"
+require_relative "FileHandler"
 require_relative "play_game"
 
 class MASTERMIND
@@ -10,7 +10,7 @@ class MASTERMIND
     input = gets.chomp
   case input.downcase
    when "i"
-     ReadInst.readfile
+     Filewriter.readfile
    when "p"
      Play.run
    when "q"

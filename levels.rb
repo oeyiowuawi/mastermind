@@ -28,6 +28,7 @@ def select_level(l_num,num)
         puts comp
         loop do
           break if trials == 12
+            print ">".green
             input_guess = gets.chomp
             if input_guess == 'q'
                 Messages.end_message
@@ -44,9 +45,10 @@ def select_level(l_num,num)
                 end_time = Game_time.time
                 game_time_mins = (end_time - start_time) / 60
                 game_time_secs = (end_time - start_time) % 60
+                print ">".green
                 player_name = gets.chop
                 puts "#{player_name}, You guessed the sequence '#{comp}' in #{game_time_mins }mins,#{game_time_secs}secs"
-                #Filewriter.writer(player_name,game_time,comp)
+                Filewriter.writer(player_name,(end_time - start_time))
                 Messages.end_message
                 system(exit)
             elsif input_guess.length == num

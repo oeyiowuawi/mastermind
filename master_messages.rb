@@ -2,7 +2,7 @@ require 'colorize'
 class Messages
   def self.start_up_message
 
-    puts  "Welcome to MASTERMIND!!!! \n Would you like to "+"(p)lay".blue + ", read the (i)nstruction or (q)uit?"
+    puts  "Welcome to MASTERMIND!!!! \n Would you like to "+"(p)lay".blue + ", read the " + "(i)nstruction".yellow + " or" + " (q)uit?".red
   end
 
   def self.end_message

@@ -1,6 +1,7 @@
 require_relative "master_messages"
 require_relative "FileHandler"
 require_relative "play_game"
+require 'colorize'
 
 class MASTERMIND
   Messages.start_up_message
@@ -8,6 +9,7 @@ class MASTERMIND
 
 
   loop do
+    print ">".green
     input = gets.chomp
   case input.downcase
    when "i"

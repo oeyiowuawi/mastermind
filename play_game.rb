@@ -7,6 +7,7 @@ class Play
     puts "<enter> 3 to choose level three(Advance level)"
     puts "<enter> q to <q>uit"
 loop do
+    print ">".green
     input1 = gets.chomp
     case input1
     when "1"

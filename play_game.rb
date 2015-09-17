@@ -12,7 +12,6 @@ loop do
     input1 = gets.chomp
     case input1
     when "1"
-
      Level.new(1)
     when "2"
       Level.new(2)

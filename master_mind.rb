@@ -1,6 +1,7 @@
 require_relative "master_messages"
 require_relative "FileHandler"
 require_relative "play_game"
+require_relative "playermode"
 require 'colorize'
 
 class MASTERMIND
@@ -15,7 +16,7 @@ print ">".green
    when "i"
      Filewriter.readfile
    when "p"
-     Play.run
+     PlayerMode.mode
    when "q"
      Messages.end_message
      system(exit)

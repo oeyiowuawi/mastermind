@@ -1,14 +1,11 @@
 require 'colorize'
 class Messages
   def self.start_up_message
-
     puts  "WELCOME TO MASTERMIND!!!!".bold.green+" \n Would you like to "+"(p)lay".blue + ", read the " + "(i)nstruction".yellow + " or" + " (q)uit?".red
   end
-
   def self.end_message
     puts  "Thanks for playing!! Come back soon!".green
   end
-
 def self.guess_length
   puts "OOPS!!! your guess is either too long or too short. check ur input"
 end
@@ -16,7 +13,8 @@ def self.valid_letter
    puts "Enter a valid letter"
  end
  def self.trials_exhausted
-   puts "You have exhausted your number of attempts"
+   puts "You have exhausted your number of attempts \n".red
+   puts "Do you want to play again? (y/n)".green
  end
 def self.congratulatory_message
   return "Congratutations!! You guessed the sequence. \n Enter your name"
@@ -37,6 +35,4 @@ puts "I have generated an Advance sequence with six elements made up of: (r)ed,
 What's your guess?"
 end
 end
-
-
  end

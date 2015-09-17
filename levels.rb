@@ -19,9 +19,7 @@ end
 
 private
 def select_level(l_num,num)
-
         Messages.level_start_messages(l_num)
-
         start_time = Game_time.time
         trials = 0
         comp = Computer.new(l_num).level_comp_guess
@@ -40,16 +38,7 @@ def select_level(l_num,num)
                 puts "the sequence has to be 4 colors displayed. Attempts left: #{12 - trials} \n Try Again".red
             elsif input_guess == comp
                 trials += 1
-                puts Messages.congratulatory_message.green
-                end_time = Game_time.time
-                game_time_mins = (end_time - start_time) / 60
-                game_time_secs = (end_time - start_time) % 60
-                print ">".green
-                player_name = gets.chop
-                puts "#{player_name}, You guessed the sequence '#{comp}' in #{game_time_mins }mins,#{game_time_secs}secs"
-                Filewriter.writer(player_name,(end_time - start_time),l_num)
-                Messages.end_message
-                system(exit)
+                gameCalc(start_time,comp,l_num)
             elsif input_guess.length == num
                 trials += 1
                 result = Game.new(input_guess,comp)
@@ -57,14 +46,31 @@ def select_level(l_num,num)
             else
                 Messages.valid_letter
             end
-
     end
     Messages.trials_exhausted
-    Messages.end_message
-    system(exit)
+    replay = gets.chomp
+    case replay
+    when "y"
+      select_level(l_num,num)
+    when "n"
+      Messages.end_message
+      system(exit)
+    end
+
 
 
 
 end
-
+def gameCalc(start_time,comp,l_num)
+  puts Messages.congratulatory_message.green
+  end_time = Game_time.time
+  game_time_mins = (end_time - start_time) / 60
+  game_time_secs = (end_time - start_time) % 60
+  print ">".green
+  player_name = gets.chop
+  puts "#{player_name}, You guessed the sequence '#{comp}' in #{game_time_mins }mins,#{game_time_secs}secs"
+  Filewriter.writer(player_name,(end_time - start_time),l_num)
+  Messages.end_message
+  system(exit)
+end
 end

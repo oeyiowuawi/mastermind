@@ -1,9 +1,9 @@
 require 'json'
+require 'colorize'
 class Filewriter
   def self.readfile
     mode = "r"
     file = File.open("instructions.txt", mode)
-
     puts file.read
     file.close
     Messages.start_up_message
@@ -18,44 +18,41 @@ when 3
   @file = "top_scores3.json"
 end
 
-  former = []
-    if File.exists? @file
-     file = File.open(@file, "r")
-     if !File.zero?@file
-       json = File.read(@file)
-        former = JSON.parse(json)
-
-     end
-     file.close
-     File.delete(@file)
-   end
-
+  former = copyContent
    obj = [
      {"name"=>player_name,"time"=>game_time}
    ]
    new_obj = former + obj
    sorted = new_obj.sort_by { |k| k["time"]}
    if sorted.count > 10
-     sorted.pop
+   sorted.pop
    end
-   puts "     ======TOP SCORES=====     "
+   puts "     ======".green+"TOP SCORES".bold.green+"=====     ".green
+   puts "     ______________________".green
    c = 1
    sorted.each do |a|
      puts "#{c}- Name: #{a["name"].upcase}  Time: #{(a["time"] / 60)}min #{(a["time"] % 60)}secs "
      c +=1
    end
-
    f = File.new(@file,"w")
   f.close
   File.open(@file,"w") do |f|
   f.puts JSON.pretty_generate(sorted)
  end
-
-
-
-
-
 end
 
+def self.copyContent
+  former = []
+  if File.exists? @file
+   file = File.open(@file, "r")
+   if !File.zero?@file
+     json = File.read(@file)
+      former = JSON.parse(json)
+   end
+   file.close
+   File.delete(@file)
+   return former
+ end
+end
 
 end

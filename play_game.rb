@@ -1,11 +1,12 @@
 require_relative "levels"
+require 'colorize'
 class Play
   def self.run
-    puts "To start the game select a level"
-    puts "<enter> 1 to choose level one(Beginner level)"
-    puts "<enter> 2 to choose level two(Intermediate level)"
-    puts "<enter> 3 to choose level three(Advance level)"
-    puts "<enter> q to <q>uit"
+    puts "To start the game select a level".green
+    puts "<enter> 1 to choose level one(Beginner level)".green
+    puts "<enter> 2 to choose level two(Intermediate level)".green
+    puts "<enter> 3 to choose level three(Advance level)".green
+    puts "<enter> q to <q>uit".red
 loop do
     print ">".green
     input1 = gets.chomp

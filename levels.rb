@@ -30,13 +30,12 @@ def select_level(l_num,num)
           break if trials == 12
             print ">".green
             input_guess = gets.chomp
-            if input_guess == 'q'
+            if input_guess == 'q' || input_guess == 'quit'
                 Messages.end_message
                 system(exit)
             elsif input_guess == "c"
-                puts  "The secret code is #{comp.upcase}"
-                Messages.end_message
-                system(exit)
+                trials += 1
+                puts  "The secret code is #{comp.upcase} Attempts left: #{12 - trials}".blue
             elsif input_guess.length > num || input_guess.length < num
                 puts "the sequence has to be 4 colors displayed. Attempts left: #{12 - trials} \n Try Again".red
             elsif input_guess == comp
@@ -48,7 +47,7 @@ def select_level(l_num,num)
                 print ">".green
                 player_name = gets.chop
                 puts "#{player_name}, You guessed the sequence '#{comp}' in #{game_time_mins }mins,#{game_time_secs}secs"
-                Filewriter.writer(player_name,(end_time - start_time))
+                Filewriter.writer(player_name,(end_time - start_time),l_num)
                 Messages.end_message
                 system(exit)
             elsif input_guess.length == num

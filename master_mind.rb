@@ -7,9 +7,9 @@ class MASTERMIND
   Messages.start_up_message
 
 
-
+print ">".green
   loop do
-    print ">".green
+
     input = gets.chomp
   case input.downcase
    when "i"

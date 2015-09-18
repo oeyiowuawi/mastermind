@@ -17,7 +17,6 @@ when 2
 when 3
   @file = "top_scores3.json"
 end
-
   former = copyContent
    obj = [
      {"name"=>player_name,"time"=>game_time}
@@ -31,7 +30,7 @@ end
    puts "     ______________________".green
    c = 1
    sorted.each do |a|
-     puts "#{c}- Name: #{a["name"].upcase}  Time: #{(a["time"] / 60)}min #{(a["time"] % 60)}secs "
+     puts "#{c}- Name: #{a["name"].upcase}  Time: #{(a["time"] / 60)}min #{(a["time"] % 60)}secs ".yellow
      c +=1
    end
    f = File.new(@file,"w")
@@ -40,7 +39,6 @@ end
   f.puts JSON.pretty_generate(sorted)
  end
 end
-
 def self.copyContent
   former = []
   if File.exists? @file
@@ -54,5 +52,4 @@ def self.copyContent
    return former
  end
 end
-
 end

@@ -18,11 +18,11 @@ class Multiplayer
         @num = 4
     when "2"
       @comp = Computer.new(2).level_comp_guess
-      l_num = 2
+      @l_num = 2
       @num = 6
     when "3"
       @comp = Computer.new(3).level_comp_guess
-      l_num = 3
+      @l_num = 3
       @num = 8
     end
     puts "Player one name"
@@ -47,17 +47,17 @@ class Multiplayer
                   puts  "The secret code is #{@comp.upcase}".blue
               elsif player1_guess.length > @num || player2_guess.length < @num
                   puts "the sequence has to be 4 colors displayed. \n Try Again".red
-              elsif player1_guess == @comp
+              elsif player1_guess == @comp && player2_guess != @comp
                   puts "#{@player1} have won!!!!!".green
                   system(exit)
-                  elsif player2_guess == @comp
+                  elsifplayer1_guess != @comp && player2_guess != @comp
                     puts "#{@player2} have won".green
                     system(exit)
               elsif player1_guess.length == @num && player2_guess.length == @num
                   result = Game.new(player1_guess,@comp)
                   result2 = Game.new(player2_guess,@comp)
-                  puts  "You av #{result.exacts} exact(s), #{result.partials} partial match(es).\n Try again".red
-                  puts  "You av #{result2.exacts} exact(s), #{result2.partials} partial match(es). \n Try again".red
+                  puts  "#{@player1} You av #{result.exacts} exact(s), #{result.partials} partial match(es).\n Try again".red
+                  puts  "#{@player2} You av #{result2.exacts} exact(s), #{result2.partials} partial match(es). \n Try again".red
               end
       end
 

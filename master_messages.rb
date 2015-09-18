@@ -26,8 +26,8 @@ def self.level_start_messages(l_numb)
 (g)reen,".green + " (b)lue,".blue + " and" + " (y)ellow".yellow + ". Use (q)uit at any time to end the game. You have 12 guesses. The game will end once you exhaust your guesses. You can repeat a color in ur guess as long as the color is a color that is specified for the level  Goodluck\n
 What's your guess?"
 when 2
-puts "I have generated an intermediate sequence with five elements made up of: (r)ed,
-(g)reen, (b)lue,  (y)ellow and (o)range. You are to guess using 6 characters. Let`s see if you are psychic enough to guess the computer`s sequence  Use (q)uit at any time to end the game. You have 12 guesses. The game will\n end once you exhaust your guesses. You can repeat a color in your guess as long as the color is a color that is specified in the level Goodluck\n
+puts "I have generated an intermediate sequence with five elements made up of:" + "(r)ed".red + ",
+(g)reen,".green + " (b)lue,".blue + "  (y)ellow".yellow + " and (o)range. You are to guess using 6 characters. Let`s see if you are psychic enough to guess the computer`s sequence  Use (q)uit at any time to end the game. You have 12 guesses. The game will\n end once you exhaust your guesses. You can repeat a color in your guess as long as the color is a color that is specified in the level Goodluck\n
 What's your guess?"
 when 3
 puts "I have generated an Advance sequence with six elements made up of: (r)ed,

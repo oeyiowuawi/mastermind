@@ -12,7 +12,7 @@ pmode = gets.chomp
 case pmode
 when  "s"
   Play.run
-when "m" || "M"
+when "m", "M"
   Multiplayer.new.select_level
 when "q"
   system(q)
